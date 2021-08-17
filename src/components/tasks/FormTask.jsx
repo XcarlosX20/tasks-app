@@ -6,7 +6,7 @@ const FormTask = () => {
     const projectContext = useContext(ProjectContext);
     const {projectSelected} = projectContext;
     const taskContext = useContext(TaskContext)
-    const {taskSelected, addTask, getTasks, editTask,taskProject} = taskContext;
+    const {taskSelected, addTask, getTasks, editTask} = taskContext;
     //state of form
     const [newTask, setNewTask] = useState({
         taskName: ""
@@ -26,18 +26,23 @@ const FormTask = () => {
     }
     const onSubmit = (e) => {
         e.preventDefault();
-        if(taskSelected === null ) {
-            // add the new task to the task state
-            newTask.id = projectSelected[0].id;
-            newTask.idTask = uuidv4();
-            newTask.state = false;
-            addTask(newTask);
-        } else {
-            // update existing task
+        getTasks(projectSelected[0].id);
+        // add the new task to the task state
+        newTask.id = projectSelected[0].id;
+        newTask.idTask = uuidv4();
+        newTask.state = false;
+        
+        
+        if(!taskSelected || newTask === "") {
+            return
+        }else{
             editTask(newTask);
+            addTask(newTask);
+            getTasks(projectSelected[0].id);
+            
         }
         // Get and filter the tasks in the current project
-        getTasks(taskProject[0].id)
+        
     }
     return (
         <div className="formulario">
@@ -47,7 +52,8 @@ const FormTask = () => {
                     placeholder="add the task name"
                     value={newTask.taskName}
                     name="taskName"
-                    className="input-text" />
+                    className="input-text"
+                    required />
                 </div>
                 <div className="contenedor-input">
                     <input type="submit"

@@ -53,7 +53,6 @@ const ProjectState = props => {
             type: PROJECT_SELECTED,
             payload: projectSelected
         })
-        console.log(projectSelected);
     }
     //delete a project
     const deleteProject = (projectSelected) => {
