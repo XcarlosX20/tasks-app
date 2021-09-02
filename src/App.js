@@ -1,13 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from './components/auth/Login';
-import NewAccount from './components/auth/NewAccount';
-import Projects from './components/projects/Projects';
-import ProjectState from './context/projects/ProjectState';
-import TaskState from './context/tasks/taskState';
+import Login from "./Components/Login"; 
+import NewAccount from "./Components/NewAccount"; 
+import Projects from "./Components/Projects"; 
 function App() {
   return (
-    <ProjectState>
-      <TaskState>
         <Router>
           <Switch>
             <Route exact path="/login" component={Login} />
@@ -15,8 +11,6 @@ function App() {
             <Route exact path="/projects" component={Projects} />
           </Switch>
         </Router>
-      </TaskState>
-    </ProjectState>
   );
 }
 
