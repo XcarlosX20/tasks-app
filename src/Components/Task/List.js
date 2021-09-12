@@ -1,13 +1,17 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Task from "./Task";
+import ProjectContext from '../../Context/Projects/ProjectContext';
 const List = () => {
+    const {actualProject, deleteProject } = useContext(ProjectContext);
+    if(!actualProject) return <h2>Select or create a new project</h2>;
+    const {projectName, id} = actualProject[0];
     const tasks = [
         {taskName: "hello", id: 3},
         {taskName: "bye", id: 4}
     ]
     return ( 
         <>
-            <h2>Project: Tienda Virtual</h2>
+           <h2>{projectName}</h2>
             <ul className="list-task">
                 {
                    tasks.length > 0 ? (
@@ -21,6 +25,7 @@ const List = () => {
                 }
             </ul>
             <button
+            onClick={() => {deleteProject(id);}}
             type="button"
             className="btn"
             >Delete Project &times;</button>

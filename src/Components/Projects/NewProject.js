@@ -1,32 +1,52 @@
-import React,{useState} from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState, useContext} from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import ProjectContext from '../../Context/Projects/ProjectContext';
 const NewProject = () => {
-    const [newProject, setNewProject] = useState({})
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data, e) => {
-        setNewProject(data);
-        e.target.reset();
+    const [newProject, setNewProject] = useState({projectName: ""})
+    const [openForm, setOpenForm] = useState(false);
+    const { addProject } = useContext(ProjectContext)
+    
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        if(newProject.projectName === ""){
+            return
+        }else{
+            newProject.id = uuidv4();
+            await addProject(newProject);
+            setOpenForm(false)
+            setNewProject({projectName: ""});
+        }
+    }
+    const handleInput = (e) => {
+        setNewProject({projectName: e.target.value});
     }
     return (
         <>
             <button
                 type="button"
-                className="btn btn-block btn-primary">New Project
-            </button>
-            <form className="form-new-project" onSubmit={handleSubmit(onSubmit)}>
-                <input type="text"
-                    className="input-text"
-                    placeholder="Project name"
-                    name="projectName"
-                    {...register("projectName", { required: true})}
-                    />
-                     {/* errors will return when field validation fails  */}
-                    {errors.projectName && <p className="err-newproject">This field is required</p>}
-                <input type="submit"
-                    className="btn btn-primary btn-block"
-                    value="Add project" />
+                className="btn btn-block btn-primary"
+                onClick={()=>setOpenForm(true)}>New Project
                 
-            </form>
+            </button>
+            {
+                openForm ? (
+                    <form className="form-new-project" onSubmit={onSubmit}>
+                        <input type="text"
+                            className="input-text"
+                            placeholder="Project name"
+                            name="projectName"
+                            value={newProject.projectName}
+                            onChange={handleInput}
+                            required
+                        />
+                        <input type="submit"
+                            className="btn btn-primary btn-block"
+                            value="Add project" />
+
+                    </form>
+                )
+                    : null
+            }
 
         </>
     );
