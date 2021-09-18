@@ -7,15 +7,15 @@ const ProjectState = ({ children }) => {
     const projects = [
         {
             projectName: "MERN",
-            id: 2
+            id: 1
         },
         {
             projectName: "JAM",
-            id: 3
+            id: 2
         },
         {
             projectName: "LAMP",
-            id: 4
+            id: 3
         }
     ]
     const initialState = {

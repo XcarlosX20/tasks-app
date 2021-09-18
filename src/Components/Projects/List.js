@@ -5,7 +5,8 @@ const List = () => {
     const { projects, getProjects } = useContext(ProjectContext)
     useEffect(() => {
        getProjects();
-    }, [getProjects]);
+       //eslint-disable-next-line
+    }, []);
     
     return ( 
         <ul className="list-projects">

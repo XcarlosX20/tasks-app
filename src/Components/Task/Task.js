@@ -1,18 +1,31 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import TasksContext from '../../Context/Tasks/TasksContext';
+import ProjectContext from '../../Context/Projects/ProjectContext';
 const Task = ({ task }) => {
-    
+    const {actualProject} = useContext(ProjectContext);
+    const {deleteTask, TaskinProject, setStateTask, selectEdit} = useContext(TasksContext);
+    const setState = () => {
+        if(task.state){
+            task.state = false;
+        }else{
+            task.state = true;
+        }
+        setStateTask(task);
+    } 
     return (
         <li className="task shadow">
-            <p>{task.taskName}</p>
+            <p>{task.task_name}</p>
             <div className="state">
                 {task.state ?
                     (<button
+                        onClick={setState}
                         type="button"
                         className="complete">
-                        Complete
+                        Done!
                     </button>)
                     :
                     (<button
+                        onClick={setState}
                         type="button"
                         className="incomplete">
                         Incomplete
@@ -23,11 +36,13 @@ const Task = ({ task }) => {
                 <button
                 type="button"
                 className="btn btn-primary"
+                onClick={()=>selectEdit(task)}
                 >edit</button>
                 <button
                  type="button"
                 className="btn btn-secundary"
-                >eliminar</button>
+                onClick={()=>{deleteTask(task.task_id); TaskinProject(actualProject[0].id)}}
+                >delete</button>
             </div>
         </li>
     );

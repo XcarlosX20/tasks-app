@@ -2,4 +2,10 @@ export const GET_PROJECTS = "GET_PROJECTS";
 export const GET_ACTUAL_PROJECTS = "GET_ACTUAL_PROJECTS";
 export const ADD_PROJECT = "ADD_PROJECT";
 export const DELETE_PROJECT = "DELETE_PROJECT";
+export const TASK_PROJECT = "TASK_PROJECT";
 export const ADD_TASK = "ADD_TASK";
+export const DELETE_TASK = "DELETE_TASK";
+export const SET_STATE_TASK = "SET_STATE_TASK";
+export const SELECT_EDIT_TASK = "SELECT_EDIT_TASK";
+export const UPLOAD_TASK = "UPLOAD_TASK";
+
