@@ -4,10 +4,10 @@ import TasksContext from '../../Context/Tasks/TasksContext';
 const Project = ({project}) => {
     const {getActualProject} = useContext(ProjectContext);
     const {TaskinProject} = useContext(TasksContext);
-    const {projectName, id} = project;
+    const {project_name, _id} = project;
     const handleProject = () => {
-        getActualProject(id);
-        TaskinProject(id)
+        getActualProject(_id);
+        TaskinProject(_id)
     }
     return ( 
         <li>
@@ -15,7 +15,7 @@ const Project = ({project}) => {
                 onClick={handleProject}
                 type="button"
                 className="btn btn-blank">
-                {projectName}
+                {project_name}
             </button>
         </li>
      );

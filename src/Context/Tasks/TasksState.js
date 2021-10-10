@@ -5,11 +5,7 @@ import {TASK_PROJECT, ADD_TASK, DELETE_TASK, SET_STATE_TASK, SELECT_EDIT_TASK, U
 const TasksState = ({ children }) => {
     
     const initialState = {
-        tasks: [
-            {task_name: "mern", task_id: "2", state: false , id_project: 1},
-            {task_name: "jam", task_id: "3", state: false , id_project: 2},
-            {task_name: "lamp", task_id: "4", state: false , id_project: 3}
-        ],
+        tasks: [],
         taskProject:null,
         taskEdit: null
     }

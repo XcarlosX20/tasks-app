@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext,useEffect } from 'react';
 import Sidebar from "../Layout/Sidebar";
 import Bar from "../Layout/Bar";
 import FormTask from '../Task/FormTask';
 import List from '../Task/List';
+import authContext from '../../Context/Auth/AuthContext';
 const Projects = () => {
+    const {getUser, token} = useContext(authContext);
+    useEffect(() => {
+        getUser(token);
+    }, [token])
     return ( 
         <>
             <div className="container-app">

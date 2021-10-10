@@ -1,24 +1,23 @@
 import React, { useState, useContext} from 'react';
-import { v4 as uuidv4 } from 'uuid';
+//import { v4 as uuidv4 } from 'uuid';
 import ProjectContext from '../../Context/Projects/ProjectContext';
 const NewProject = () => {
-    const [newProject, setNewProject] = useState({projectName: ""})
+    const [newProject, setNewProject] = useState({project_name: ""})
     const [openForm, setOpenForm] = useState(false);
     const { addProject } = useContext(ProjectContext)
     
     const onSubmit = async (e) => {
         e.preventDefault();
-        if(newProject.projectName === ""){
+        if(newProject.project_name === ""){
             return
         }else{
-            newProject.id = uuidv4();
             await addProject(newProject);
             setOpenForm(false)
-            setNewProject({projectName: ""});
+            setNewProject({project_name: ""});
         }
     }
     const handleInput = (e) => {
-        setNewProject({projectName: e.target.value});
+        setNewProject({project_name: e.target.value});
     }
     return (
         <>
@@ -34,8 +33,8 @@ const NewProject = () => {
                         <input type="text"
                             className="input-text"
                             placeholder="Project name"
-                            name="projectName"
-                            value={newProject.projectName}
+                            name="project_name"
+                            value={newProject.project_name}
                             onChange={handleInput}
                             required
                         />
