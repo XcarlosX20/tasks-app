@@ -11,6 +11,7 @@ const FormTask = () => {
         if(actualProject !== null && actualProject.length ){
             setNewTask({...newTask, project_id: actualProject[0]._id })
            }
+           TaskinProject();
        }
        setActualProject();
        //eslint-disable-next-line

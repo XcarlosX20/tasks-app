@@ -12,7 +12,7 @@ const List = () => {
            <h2>{project_name}</h2>
             <ul className="list-task">
                 {
-                   taskProject.length > 0 ? (
+                   taskProject ? (
                     taskProject.map(task=>(
                         <Task task={task} key={task.task_id}/>
                     ))

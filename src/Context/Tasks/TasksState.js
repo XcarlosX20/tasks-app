@@ -11,20 +11,19 @@ const TasksState = ({ children }) => {
     }
     const [state, dispatch] = useReducer(TasksReducer, initialState);
     //fxs
-    const TaskinProject = async (_id) => {
-        try {
-            const response = await clientAxios.get('/api/tasks/');
-            console.log(response.data);
+    const TaskinProject = async (project_id) => {
+            const response = await clientAxios.get('/api/tasks');
+            
+            console.log(response);
             dispatch({
-                type: TASK_PROJECT, payload: _id
+                type: TASK_PROJECT, payload: response.data.task_of_project
             })
-        } catch (error) {
-            console.log(error);
-        }
+        
     }
     const addTask = async (task) => {
         try {
             const response = await clientAxios.post('/api/tasks', task);
+            console.log(response);
             dispatch({
                 type: ADD_TASK, payload: response.data.task
             })
