@@ -5,11 +5,11 @@ import TasksContext from '../../Context/Tasks/TasksContext';
 const FormTask = () => {
     const {actualProject} = useContext(ProjectContext);
     const {addTask, TaskinProject, taskEdit, selectEdit, uploadTask} = useContext(TasksContext);
-    const [newTask, setNewTask] = useState({task_name: "", state: false, id_project: null});
+    const [newTask, setNewTask] = useState({task_name: "", state: false, project_id: null});
     useEffect(() => {
        const setActualProject = () => {
         if(actualProject !== null && actualProject.length ){
-            setNewTask({...newTask, id_project: actualProject[0].id })
+            setNewTask({...newTask, project_id: actualProject[0]._id })
            }
        }
        setActualProject();
@@ -39,8 +39,8 @@ const FormTask = () => {
                uploadTask(newTask)
                 selectEdit(null);
             }
-            TaskinProject(newTask.id_project);
-            setNewTask({task_name: "", id_project:actualProject[0].id , state: false});
+            TaskinProject(newTask.project_id);
+            setNewTask({task_name: "", project_id:actualProject[0]._id , state: false});
         }
     }
     const handleInput = (e) => {

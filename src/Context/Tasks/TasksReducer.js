@@ -3,7 +3,7 @@ export const TasksReducer = (state, action) => {
     switch (action.type) {
         case TASK_PROJECT:
             return{
-                ...state, taskProject: state.tasks.filter(task=> task.id_project === action.payload)
+                ...state, taskProject: state.tasks.filter(task=> task._id === action.payload)
             }
         case ADD_TASK:
             return{

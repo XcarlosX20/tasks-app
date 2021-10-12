@@ -7,7 +7,7 @@ const Project = ({project}) => {
     const {project_name, _id} = project;
     const handleProject = () => {
         getActualProject(_id);
-        TaskinProject(_id)
+        TaskinProject(_id);
     }
     return ( 
         <li>

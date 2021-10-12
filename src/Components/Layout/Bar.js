@@ -1,12 +1,14 @@
-import React,{useContext, useState} from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React,{useContext} from 'react';
+import {useHistory } from 'react-router-dom';
 import authContext from '../../Context/Auth/AuthContext';
-import Loading from './Loading';
+import ProjectContext from '../../Context/Projects/ProjectContext';
 const Bar = () => {
     let history = useHistory()
     const {user, logout} = useContext(authContext);
+    const {hideProjects} = useContext(ProjectContext);
    const btnLogout = async () => {
             logout();
+            hideProjects();
             history.push("/login");
    }
     

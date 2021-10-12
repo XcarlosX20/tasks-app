@@ -1,5 +1,5 @@
 import React,{useEffect, useContext} from 'react';
-import { Redirect, Route } from "react-router";
+import {Route } from "react-router";
 import authContext from '../../Context/Auth/AuthContext';
 import Loading from '../Layout/Loading';
 const PrivateRoute = ({component: Component, ...props}) => {

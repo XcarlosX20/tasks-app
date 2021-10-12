@@ -6,10 +6,10 @@ const List = () => {
     const {actualProject, deleteProject } = useContext(ProjectContext);
     const {taskProject} = useContext(TasksContext);
     if(!actualProject) return <h2>Select or create a new project</h2>;
-    const {projectName, id} = actualProject[0];
+    const {project_name, _id} = actualProject[0];
     return ( 
         <>
-           <h2>{projectName}</h2>
+           <h2>{project_name}</h2>
             <ul className="list-task">
                 {
                    taskProject.length > 0 ? (
@@ -23,7 +23,7 @@ const List = () => {
                 }
             </ul>
             <button
-            onClick={() => {deleteProject(id);}}
+            onClick={() => {deleteProject(_id);}}
             type="button"
             className="btn"
             >Delete Project &times;</button>

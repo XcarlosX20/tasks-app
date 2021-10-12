@@ -3,7 +3,6 @@ import {clientAxios, tokenAuth} from "../../Axios";
 import {GET_USER, LOGIN_SUCCESS, REGISTER_SUCCESS, LOGIN_ERROR, REGISTER_ERROR, LOGOUT} from "../../Types";
 import authContext from "./AuthContext";
 import authReducer from "./AuthReducer";
-
 const AuthState = ({children}) =>{
     const initialState = {
         auth: null,

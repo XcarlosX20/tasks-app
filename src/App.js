@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { tokenAuth } from './Axios';
-import Loading from './Components/Layout/Loading';
 import Login from "./Components/Login";
 import NewAccount from "./Components/NewAccount";
 import Projects from "./Components/Projects";

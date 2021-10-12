@@ -41,7 +41,7 @@ const Task = ({ task }) => {
                 <button
                  type="button"
                 className="btn btn-secundary"
-                onClick={()=>{deleteTask(task.task_id); TaskinProject(actualProject[0].id)}}
+                onClick={()=>{deleteTask(task.task_id); TaskinProject(actualProject[0]._id)}}
                 >delete</button>
             </div>
         </li>

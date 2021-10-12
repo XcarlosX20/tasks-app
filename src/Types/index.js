@@ -3,6 +3,7 @@ export const GET_PROJECTS = "GET_PROJECTS";
 export const GET_ACTUAL_PROJECTS = "GET_ACTUAL_PROJECTS";
 export const ADD_PROJECT = "ADD_PROJECT";
 export const DELETE_PROJECT = "DELETE_PROJECT";
+export const HIDE_PROJECTS = "HIDE_PROJECTS";
 //tasks
 export const TASK_PROJECT = "TASK_PROJECT";
 export const ADD_TASK = "ADD_TASK";

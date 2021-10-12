@@ -1,5 +1,4 @@
 import React, { useState, useContext} from 'react';
-//import { v4 as uuidv4 } from 'uuid';
 import ProjectContext from '../../Context/Projects/ProjectContext';
 const NewProject = () => {
     const [newProject, setNewProject] = useState({project_name: ""})
@@ -11,8 +10,8 @@ const NewProject = () => {
         if(newProject.project_name === ""){
             return
         }else{
+            setOpenForm(false);
             await addProject(newProject);
-            setOpenForm(false)
             setNewProject({project_name: ""});
         }
     }
