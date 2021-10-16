@@ -5,10 +5,11 @@ import FormTask from '../Task/FormTask';
 import List from '../Task/List';
 import authContext from '../../Context/Auth/AuthContext';
 const Projects = () => {
-    const {getUser, token} = useContext(authContext);
+    const {getUser} = useContext(authContext);
     useEffect(() => {
-        getUser(token);
-    }, [token])
+        getUser();
+        // eslint-disable-next-line
+    }, [])
     return ( 
         <>
             <div className="container-app">

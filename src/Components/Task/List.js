@@ -12,9 +12,9 @@ const List = () => {
            <h2>{project_name}</h2>
             <ul className="list-task">
                 {
-                   taskProject ? (
+                   taskProject.length ? (
                     taskProject.map(task=>(
-                        <Task task={task} key={task.task_id}/>
+                        <Task task={task} key={task._id}/>
                     ))
                    ):
                    (<p className="task">

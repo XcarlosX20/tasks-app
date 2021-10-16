@@ -1,4 +1,4 @@
-import {TASK_PROJECT, ADD_TASK, DELETE_TASK, SET_STATE_TASK, SELECT_EDIT_TASK, UPLOAD_TASK} from "../../Types/index";
+import {TASK_PROJECT, ADD_TASK, DELETE_TASK, SELECT_EDIT_TASK, UPLOAD_TASK} from "../../Types/index";
 export const TasksReducer = (state, action) => {
     switch (action.type) {
         case TASK_PROJECT:
@@ -7,16 +7,15 @@ export const TasksReducer = (state, action) => {
             }
         case ADD_TASK:
             return{
-                ...state, tasks: [...state.tasks, action.payload]
+                ...state, taskProject: [action.payload, ...state.taskProject]
             }
         case DELETE_TASK:
             return{
-                ...state, tasks: state.tasks.filter(task=> task.task_id !== action.payload)
+                ...state, taskProject: state.taskProject.filter(task=> task._id !== action.payload)
             }
-        case SET_STATE_TASK:
         case UPLOAD_TASK: 
             return{
-                ...state, tasks: state.tasks.map(task=> task.task_id === action.payload.task_id ? action.payload : task)
+                ...state, taskProject: state.taskProject.map(task=> task._id === action.payload._id ? action.payload : task)
             }
         case SELECT_EDIT_TASK:
             return{
