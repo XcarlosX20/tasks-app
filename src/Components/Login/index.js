@@ -8,7 +8,7 @@ const Login = (props) => {
     const {auth, login, alertAuth} = useContext(authContext)
     const { register, handleSubmit, formState: { errors }} = useForm();
     const onSubmit = (data) => {
-        if(!data.password.length >= 6){
+        if(data.password.length < 6){
         showAlert("check the requeriments", "alert-error");
         }else{
             const {email,password} = data;
@@ -22,7 +22,7 @@ const Login = (props) => {
         if(alertAuth){
             showAlert(alertAuth.msg, alertAuth.category);
          }
-    }, [auth, props.history, alertAuth])
+    }, [auth, props.history, alertAuth, showAlert])
     return ( 
         <>
             <div className="form-user">

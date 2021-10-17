@@ -2,6 +2,7 @@ import React,{useContext} from 'react';
 import Task from "./Task";
 import ProjectContext from '../../Context/Projects/ProjectContext';
 import TasksContext from '../../Context/Tasks/TasksContext';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 const List = () => {
     const {actualProject, deleteProject } = useContext(ProjectContext);
     const {taskProject} = useContext(TasksContext);
@@ -12,14 +13,21 @@ const List = () => {
            <h2>{project_name}</h2>
             <ul className="list-task">
                 {
-                   taskProject.length ? (
-                    taskProject.map(task=>(
-                        <Task task={task} key={task._id}/>
-                    ))
-                   ):
-                   (<p className="task">
+                   taskProject.length ? 
+                    <TransitionGroup>
+                    {taskProject.map(task=>(
+                        <CSSTransition
+                        timeout={300}
+                        classNames="task"
+                        key={task._id}>
+                            <Task task={task}/>
+                        </CSSTransition>
+                    ))}
+                    </TransitionGroup>
+                   :
+                   (<li className="task">
                        No pending tasks
-                   </p>)
+                   </li>)
                 }
             </ul>
             <button

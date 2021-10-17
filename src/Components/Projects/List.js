@@ -9,7 +9,7 @@ const List = () => {
     }, []);
     return ( 
         <ul className="list-projects">
-            {projects.length > 0 ? (
+            {projects.length ? (
                 projects.map(project=>(<Project project={project} key={project._id}/>))
             ): <li>You no have pending projects</li>}
         </ul>

@@ -23,7 +23,7 @@ const NewAccount = (props) => {
         if(auth){
             props.history.push("/projects");
         }
-    }, [alertAuth, auth, props.history])
+    }, [alertAuth, auth, props.history, showAlert])
     return ( 
         <>
             <div className="form-user">
