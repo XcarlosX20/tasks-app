@@ -17,7 +17,6 @@ const ProjectState = ({ children }) => {
         })
     }
     const addProject = async (project) => {
-        dispatch({type: ADD_PROJECT, payload: project});
         try {
             await clientAxios.post('./api/projects', project);
             getProjects();
