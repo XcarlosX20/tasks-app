@@ -1,22 +1,14 @@
-# What can i do?
-
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# What i can do?
+First, install the dependencies (it's lightweights so it will be fast)
 
 ### `yarn install`
 
-First, install the dependencies (it's lightweights so it will be fast)
+then you can start this project with:
 
-### `yarn build`
+### `yarn start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Demo: 
+https://merntask-carlsasj.netlify.app/
 
+##code Backend:
+https://github.com/XcarlosX20/tasks-app-backend
